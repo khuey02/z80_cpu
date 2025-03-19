@@ -1,0 +1,28 @@
+A:  40    
+F : 00
+B:  10    
+C:  41
+D:  10    
+E:  00
+H:  00    
+L:  00
+I:  00    
+R:  0D
+A':  00    
+F':  00
+B':  00    
+C':  00
+D':  00    
+E':  00
+AF: 0000   
+BC: 0000
+DE: 0000   
+HL: 0000
+IFF1: 0   
+IFF2: 0
+IM: 0    
+Hidden 16-bit math register: 00
+IX: FFFF    
+IY: FFFF
+PC: 0011   
+SP: 0000
