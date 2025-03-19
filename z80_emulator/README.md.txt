@@ -1,12 +1,9 @@
-Keara Huey CMSC 411 Project README
-
-
-1. Project: z80 CPU Emulator
+Project: z80 CPU Emulator
 
     This is a simplified version of a z80 cpu emulator using C.
 
 
-2. Project Description:
+Project Description:
 
     The general structure of this project is divided into 3 components: fetch, decode, and execute.
 
@@ -27,7 +24,7 @@ Keara Huey CMSC 411 Project README
 		        jumps_interrupts.c (instructions.h, decoder.h)
 		
 
-3. How to Run:
+How to Run:
 
     How to compile:
 
@@ -44,66 +41,12 @@ Keara Huey CMSC 411 Project README
         $ cpu_em <test_file>
 
 
-4. Work Process and Struggles
-
-    1. I started off taking notes on the project instructions and outlining everything I needed to implement.
-       I began researching using the sources given. 
-
-    2. I started off with professor Sebald's reference code for the cpu_em.c setup functions and I referenced the "How to Write a Computer Emulator" with their fetch loop structure.
-
-    3. I focused on creating the structure of the program, dividing components into separate files for better organization. 
-       I drew out a diagram to visualize the dependencies of the separated files and the overall flow of operation before writing up the makefile.
-       I decided to use a struct for holding cpu info, storing the cycle counts in cpu_em.c, and used different arrays and flags to differentiate the opcode tables.
-
-       I ran into issues with Windows not recognizing rm for the Makefile, so I switched to using del to clean the generated executables.
-
-    4. I then focused on creating a skeleton for the project. I filled out all of the cycle counts, finished the basic loop functionality in cpu_em.c, the basic z80 struct in cpu_em.h, and
-        created a large switch case for decoder.c to identify opcodes.
-    
-    5. I researched different command-line assemblers to use to create test files that the program would run and went with using zasm.
-       I struggled with zasm only generated .asm files, and couldn't get it to convert it to a .bin file unless I manually changed it, but this method seemed to work fine.
-
-    6. I then focused on implementing the opcodes and this is when I came across clrhome's z80 opcode tables which were extremely helpful for finding 
-       opcode cycles and names. I used this table as a secondary tool to make sure I wasn't missing anything. I used the z80 Family CPU User Manual for flag logic.
-
-       I ran into issues with my F flag register not matching the test outputs. It seemed like the X unused registers were set in the expected output of the test code along with the
-       flags you would expect with the operations executed. In class this question was answered - startup values can be whatever for some of the registers.
-
-    7. I then incrementally went through each section of opcode implementations, researching when necessary.
-
-
-5. Components that I know aren't working correctly/not implemented:
+Components that aren't working correctly/not implemented:
     Not implemented: IX IY loads/increments/etc, JR Unconditional Jumps
     Not working: provided call test failed
 
-6. Resources:
 
-    Professor Sebald's code for starting framework and test files
-
-    Clrhome Z80 Opcode Table, https://clrhome.org/table/
-
-    Z80 Family CPU Manual, https://www.zilog.com/docs/z80/z80cpu_um.pdf
-    
-    The Undocumented Z80 Documented, http://z80.info/zip/z80-documented.pdf
-
-    How to Write a Computer Emulator, http://www.emulation.org/EMUL8/HOWTO.html
-
-    Makefile UMBC CMSC 202 Lecture Slides by Professor Dixon
-
-    z80 Heaven, "Flags and Bit Level Instructions",  http://z80-heaven.wikidot.com/flags-and-bit-level-instructions
-
-    BTEC National for IT Practitioners, "Computer Hardware, Introduction to Bit Masking", http://www.folder101.com/Control/Notes/BitMasking/BitMasking.htm
-
-    C/Macros, https://www.cs.yale.edu/homes/aspnes/pinewiki/C(2f)Macros.html
-
-    GNU/onlinedocs ,"The C Preprocessor: Macros", https://gcc.gnu.org/onlinedocs/gcc-3.0.1/cpp_3.html
-
-    CodeMentor, "C/C++ Macro and Bit Operations", Hamza Braham, https://www.codementor.io/@hbendali/c-c-macro-bit-operations-ztrat0et6
-
-    A discussion/descripton of half-carry, https://www.robm.dev/articles/gameboy-half-carry/
-
-
-6. Supported Operations:
+Supported Operations:
 
     8-bit Unsigned Arithmetic Addition
         [0x80]: ADD A, B    
